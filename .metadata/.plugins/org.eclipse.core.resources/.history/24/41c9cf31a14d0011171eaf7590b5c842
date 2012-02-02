@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>jQuery UI Resizable - Textarea</title>
+	<link rel="stylesheet" href="textarea_files/jquery.css">
+	<script src="textarea_files/jquery-1.js"></script>
+	<script src="textarea_files/jquery_004.js"></script>
+	<script src="textarea_files/jquery_003.js"></script>
+	<script src="textarea_files/jquery.js"></script>
+	<script src="textarea_files/jquery_002.js"></script>
+	<link rel="stylesheet" href="textarea_files/demos.css">
+	<style>
+	.ui-resizable-se {
+		bottom: 17px;
+	}
+	</style>
+	<script>
+	$(function() {
+		$( "#resizable" ).resizable({
+			handles: "se"
+		});
+	});
+	</script>
+</head>
+<body style="cursor: auto;">
+
+<div class="demo">
+	
+<div class="ui-wrapper" style="overflow: hidden; position: relative; width: 479px; height: 156px; top: 0px; left: 0px; margin: 1px 0px; padding-bottom: 16px;"><textarea style="resize: none; position: static; display: block; height: 150px; width: 473px;" class="ui-resizable" id="resizable" rows="5" cols="20"></textarea><div style="z-index: 1001;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se"></div></div>
+
+</div><!-- End demo -->
+
+
+
+<div class="demo-description">
+<p>Display only an outline of the element while resizing by setting the <code>helper</code> option to a CSS class.</p>
+</div><!-- End demo-description -->
+
+
+
+</body></html>

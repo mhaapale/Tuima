@@ -1,0 +1,7 @@
+form {
+text-align:center;
+}
+
+.ui-resizable-se {
+	bottom: 17px;
+}

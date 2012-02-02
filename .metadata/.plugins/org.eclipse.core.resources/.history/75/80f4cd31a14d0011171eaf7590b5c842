@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="dj_gecko dj_contentbox" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Demo: BorderContainer</title>
+		<link rel="stylesheet" href="borderContainer_files/demo.css" media="screen">
+		<link rel="stylesheet" href="borderContainer_files/style.css" media="screen">
+		<link rel="stylesheet" href="borderContainer_files/claro.css" media="screen">
+		<!-- load dojo and provide config via data attribute -->
+		<script src="borderContainer_files/dojo.js" data-dojo-config="parseOnLoad: true">
+		</script>
+		<script>
+			dojo.require("dojo.parser");
+			dojo.require("dijit.layout.BorderContainer");
+			dojo.require("dijit.layout.ContentPane");
+		</script><script src="borderContainer_files/parser.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/BorderContainer.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/ContentPane.js" charset="utf-8" type="text/javascript"></script>
+	<script src="borderContainer_files/stamp.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_LayoutWidget.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/cookie.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_Templated.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_Widget.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_ContentPaneResizeMixin.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/string.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/html.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/loading.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_Container.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_Contained.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/regexp.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/cache.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_WidgetBase.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/_base.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/manager.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/Stateful.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/focus.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/place.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/popup.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/scroll.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/sniff.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/typematic.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/wai.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/window_002.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/window.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/AdapterRegistry.js" charset="utf-8" type="text/javascript"></script><script src="borderContainer_files/uacss.js" charset="utf-8" type="text/javascript"></script></head>
+	<body class="claro">
+		<div style="padding: 0px;" widgetid="appLayout" dir="ltr" id="appLayout" class="demoLayout dijitBorderContainer dijitContainer dijitLayoutContainer" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'headline'">
+			<div style="left: 210px; top: 44px; right: auto; bottom: auto; width: 1369px; height: 507px;" widgetid="dijit_layout_ContentPane_0" dir="ltr" id="dijit_layout_ContentPane_0" role="group" title="" class="centerPanel dijitContentPane dijitBorderContainer-child dijitBorderContainer-dijitContentPane dijitBorderContainerPane dijitAlignCenter" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'center'">
+				<div>
+					<h4>Group 1 Content</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+ eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+ mollit anim id est laborum.</p>
+				</div>
+				<div>
+					<h4>Group 2 Content</h4>
+				</div>
+				<div>
+					<h4>Group 3 Content</h4>
+				</div>
+			</div>
+			<div style="left: 5px; top: 5px; right: auto; bottom: auto; width: 1574px;" widgetid="dijit_layout_ContentPane_1" dir="ltr" id="dijit_layout_ContentPane_1" role="group" title="" class="edgePanel dijitContentPane dijitBorderContainer-child dijitBorderContainer-dijitContentPane dijitBorderContainerPane dijitAlignTop" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'top'">Header content (top)</div><div style="left: 5px; top: 39px; right: auto; bottom: auto; width: 1592px;" widgetid="dijit_layout_ContentPane_1_splitter" id="dijit_layout_ContentPane_1_splitter" class="dijitGutter dijitGutterH dijitAlignTop" role="presentation"></div>
+			<div style="left: 5px; top: 44px; right: auto; bottom: auto; height: 507px;" widgetid="leftCol" dir="ltr" role="group" title="" id="leftCol" class="edgePanel dijitContentPane dijitBorderContainer-child dijitBorderContainer-dijitContentPane dijitBorderContainerPane dijitAlignLeft" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'left', splitter: true">Sidebar content (left)</div><div style="left: 205px; top: 44px; right: auto; bottom: auto; height: 525px;" widgetid="leftCol_splitter" id="leftCol_splitter" class="dijitSplitter dijitSplitterV dijitAlignLeft" dojoattachevent="onkeypress:_onKeyPress,onmousedown:_startDrag,onmouseenter:_onMouse,onmouseleave:_onMouse" tabindex="0" role="separator"><div class="dijitSplitterThumb"></div></div>
+		</div>
+	
+
+</body></html>
