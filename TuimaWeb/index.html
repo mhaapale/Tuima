@@ -4,6 +4,11 @@
 		<meta charset="utf-8">
 		<title id="titleId"></title>
 		<link rel="stylesheet" href="style.css" media="screen"/>
+		    <style type="text/css">
+        	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dijit/themes/claro/claro.css";
+       		@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojo/resources/dojo.css"
+       		@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/form/resources/BusyButton.css");
+    </style>
 <!--		<link rel="stylesheet" href="claro.css" media="screen"/>  --> 
  
 
@@ -19,10 +24,19 @@
     	</script>
 		
 		<script src="dojoBase/dojo/dojo.js"></script>
+		<script src="dojoBase/dijit/dijit.js"></script>
+
 		<script>
 			dojo.require("dojo.parser");
 			dojo.require("dijit.layout.BorderContainer");
 			dojo.require("dijit.layout.ContentPane");
+			
+			dojo.require("dijit.form.Textarea");
+			
+			dojo.require("dijit.form.Button");
+			dojo.require("dojox.form.BusyButton");
+			dojo.require("dijit.form.Form");
+
 		</script>
 
 		<script type="text/javascript">
@@ -34,9 +48,12 @@
         		var pageTitleString = nlsStrings.PAGE_TITLE; 
         		var greetingString = nlsStrings.GREETING;
         		var copyPasteAreaString = nlsStrings.COPY_PASTE_AREA;
+				var pasteSubmitString = nlsStrings.PASTE_BUTTON
 
         		dojo.byId("greetingId").innerHTML = greetingString;
         		dojo.byId("titleId").text = pageTitleString;
+        		dojo.byId("pasteSubmitId").label = pasteSubmitString;
+
       		}
       		dojo.addOnLoad(init);
     	</script>
@@ -45,24 +62,19 @@
 	<body class="claro">
 		<div id="appLayout" class="demoLayout" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'headline'">
 			<div class="centerPanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'center'">
-					<p id="greetingId"></p>
-<textarea value="This text area will expand and contract as you type ‪text.‬
-
-Lorem ipsum dolor sit ‪amet,‬
-consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo ‪consequat.‬
-				" widgetid="dijit_form_Textarea_0" id="dijit_form_Textarea_0" tabindex="0" rows="1" style="overflow-y: hidden; overflow-x: auto; -moz-box-sizing: border-box; height: 118px;" class="dijitTextBox dijitTextArea dijitExpandingTextArea" name="areText" data-dojo-attach-point="focusNode,containerNode,textbox" autocomplete="off">This text area will expand and contract as you type ‪text.‬
-
-Lorem ipsum dolor sit ‪amet,‬
-consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo ‪consequat.‬
-				</textarea>
+				<p id="greetingId"></p>
+				<div data-dojo-type="dijit.form.Form" id="myForm" data-dojo-id="myForm"
+						encType="multipart/form-data" action="" method="">
+					<textarea id="textarea2" name="textarea2" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
+					<br>
+					<button data-dojo-type="dijit.form.Button" type="submit" name="submitButton" value="saave">Save</button>
 					
+					
+				</div>			
 			</div>
 			<div class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'top'">Header content (top)</div>
 			<div id="leftCol" class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'left', splitter: true">Sidebar content (left)</div>
 		</div>
+	
 	</body>
 </html>
