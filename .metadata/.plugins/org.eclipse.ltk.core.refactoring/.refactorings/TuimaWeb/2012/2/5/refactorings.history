@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;TuimaWeb/index2.html&apos; to &apos;index.html&apos;" description="Rename resource &apos;index2.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="index2.html" name="index.html" stamp="1328189068246" updateReferences="true"/>
-</session>
