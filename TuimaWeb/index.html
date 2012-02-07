@@ -4,18 +4,11 @@
 		<meta charset="utf-8">
 		<title id="titleId"></title>
 		<link rel="stylesheet" href="style.css" media="screen"/>
-		    <style type="text/css">
+		<style type="text/css">
         	@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dijit/themes/claro/claro.css";
        		@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojo/resources/dojo.css"
        		@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/form/resources/BusyButton.css");
-    </style>
-<!--		<link rel="stylesheet" href="claro.css" media="screen"/>  --> 
- 
-
-<!-- 		<script src="dojoBase/dojo/dojo.js" data-dojo-config="parseOnLoad: true"> 
-			<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css" media="screen"/>
-
-	-->
+    	</style>
 
    		<script type="text/javascript">
       		var djConfig = { modulePaths: { TuimaWeb: "../.."},
@@ -24,8 +17,8 @@
     	</script>
 		
 		<script src="dojoBase/dojo/dojo.js"></script>
-		<script src="dojoBase/dijit/dijit.js"></script>
 
+		<!-- load required dojo modules-->
 		<script>
 			dojo.require("dojo.parser");
 			dojo.require("dijit.layout.BorderContainer");
@@ -37,37 +30,55 @@
 			dojo.require("dojox.form.BusyButton");
 			dojo.require("dijit.form.Form");
 
-		</script>
-
-		<script type="text/javascript">
      		dojo.require("dojo.i18n");
+     		
+     		dojo.require("dojox.data.JsonRestStore");
+     		
+  //			dojo.require("dojox.rpc.Service");
+     		
+     		
+     		
       		dojo.requireLocalization("TuimaWeb", "index_res");
+		</script>
+		
+		<!-- functions -->
+		<script type="text/javascript">
+			//Init rest service
+//      		var restService = dojox.rpc.Rest("Recipes");
+			var rs = new dojox.data.JsonRestStore({target:"/recipeStore"});
+			var restService = dojox.rpc.Rest("Project");
+			
       		function init()
       		{
         		var nlsStrings = dojo.i18n.getLocalization("TuimaWeb","index_res");
-        		var pageTitleString = nlsStrings.PAGE_TITLE; 
-        		var greetingString = nlsStrings.GREETING;
-        		var copyPasteAreaString = nlsStrings.COPY_PASTE_AREA;
-				var pasteSubmitString = nlsStrings.PASTE_BUTTON
 
-        		dojo.byId("greetingId").innerHTML = greetingString;
-        		dojo.byId("titleId").text = pageTitleString;
-        		dojo.byId("pasteSubmitId").label = pasteSubmitString;
+				dojo.byId("titleId").text = nlsStrings.PAGE_TITLE;
+        		dojo.byId("greetingId").innerHTML = nlsStrings.GREETING;       		 
+        		dojo.byId("pasteSubmitId").innerHTML = nlsStrings.PASTE_SUBMIT;
 
       		}
+      		function pasteButtonPressed() {
+//	  			var item = rs.getValue(item,"foo");
+				console.log("hello world")
+	  			restService("4");
+	  			restService.post("4", "new content");
+      		}
+			console.log("vittu")
+restService("4");
+      		/* On page load */     		
       		dojo.addOnLoad(init);
     	</script>
 		
 	</head>
-	<body class="claro">
+	<body>
 		<div id="appLayout" class="demoLayout" data-dojo-type="dijit.layout.BorderContainer" data-dojo-props="design: 'headline'">
-			<div class="centerPanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'center'">
+			<div class="claro" class="centerPanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'center'">
 				<p id="greetingId"></p>
 				<div data-dojo-type="dijit.form.Form" id="myForm" data-dojo-id="myForm"
 						encType="multipart/form-data" action="" method="">
-					<textarea id="textarea2" name="textarea2" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
+					<textarea id="pasteArea" name="textarea2" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
 					<br>
-					<button data-dojo-type="dijit.form.Button" type="submit" name="submitButton" value="saave">Save</button>
+					<button id="pasteSubmitId" data-dojo-type="dijit.form.Button" onClick="pasteButtonPressed();" type="submit" name="submitButton" value="saave"></button>
 					
 					
 				</div>			
