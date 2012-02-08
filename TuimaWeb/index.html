@@ -43,10 +43,11 @@
 		
 		<!-- functions -->
 		<script type="text/javascript">
+			var url = "/test/data"
 			//Init rest service
 //      		var restService = dojox.rpc.Rest("Recipes");
-			var rs = new dojox.data.JsonRestStore({target:"/recipeStore"});
-			var restService = dojox.rpc.Rest("Project");
+//			var rs = new dojox.data.JsonRestStore({target:"/test"});
+			var restService = dojox.rpc.Rest("test/data/");
 			
       		function init()
       		{
@@ -60,11 +61,14 @@
       		function pasteButtonPressed() {
 //	  			var item = rs.getValue(item,"foo");
 				console.log("hello world")
-	  			restService("4");
-	  			restService.post("4", "new content");
+	  			restService("recipe");
+//	  			restService.post("4", "new content");
       		}
 			console.log("vittu")
-restService("4");
+restService("recipe");
+
+	  		restService.post("recipe", "vittua ukille");
+
       		/* On page load */     		
       		dojo.addOnLoad(init);
     	</script>
