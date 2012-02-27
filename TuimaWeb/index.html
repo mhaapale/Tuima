@@ -17,6 +17,8 @@
     	</script>
 		
 		<script src="dojoBase/dojo/dojo.js"></script>
+  		<script src="jquery/jquery-1.7.1.min.js"></script>
+
 
 		<!-- load required dojo modules-->
 		<script>
@@ -47,8 +49,9 @@
 			//Init rest service
 //      		var restService = dojox.rpc.Rest("Recipes");
 //			var rs = new dojox.data.JsonRestStore({target:"/test"});
-			var restService = dojox.rpc.Rest("test/data/");
-			
+
+			var restService = dojox.rpc.Rest("/solr/", true);
+
       		function init()
       		{
         		var nlsStrings = dojo.i18n.getLocalization("TuimaWeb","index_res");
@@ -59,18 +62,16 @@
 
       		}
       		function pasteButtonPressed() {
-//	  			var item = rs.getValue(item,"foo");
-				console.log("hello world")
-	  			restService("recipe");
-//	  			restService.post("4", "new content");
-      		}
-			console.log("vittu")
-restService("recipe");
+      			 console.log("before:");
 
-	  		restService.post("recipe", "vittua ukille");
-
+      			var json =  '{\"add\": {\"doc\": {\"id\" : \"TestDoc1\", \"title\" : \"test1\"}}}';
+//				var json = "{\"foo\":\"bar\"})";
+      			console.log("json:"+json);
+	  			restService.post("update/json?commit=true", json); 
+			}
       		/* On page load */     		
       		dojo.addOnLoad(init);
+      		
     	</script>
 		
 	</head>
@@ -79,12 +80,11 @@ restService("recipe");
 			<div class="claro" class="centerPanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'center'">
 				<p id="greetingId"></p>
 				<div data-dojo-type="dijit.form.Form" id="myForm" data-dojo-id="myForm"
-						encType="multipart/form-data" action="" method="">
-					<textarea id="pasteArea" name="textarea2" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
+						encType="application/x-www-form-urlencoded" >
+					<textarea id="pasteArea" name="textarea3" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
 					<br>
-					<button id="pasteSubmitId" data-dojo-type="dijit.form.Button" onClick="pasteButtonPressed();" type="submit" name="submitButton" value="saave"></button>
-					
-					
+					<button id="pasteSubmitId" data-dojo-type="dijit.form.Button" onClick="pasteButtonPressed();" type="reset"></button>
+									
 				</div>			
 			</div>
 			<div class="edgePanel" data-dojo-type="dijit.layout.ContentPane" data-dojo-props="region: 'top'">Header content (top)</div>
