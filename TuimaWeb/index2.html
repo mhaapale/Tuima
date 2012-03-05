@@ -29,6 +29,7 @@
 			dojo.require("dijit.layout.ContentPane");
 			
 			dojo.require("dijit.form.Textarea");
+			dojo.require("dijit.form.SimpleTextarea");
 			
 			dojo.require("dijit.form.Button");
 			dojo.require("dojox.form.BusyButton");
@@ -60,17 +61,15 @@
 
 				dojo.byId("titleId").text = nlsStrings.PAGE_TITLE;
         		dojo.byId("greetingId").innerHTML = nlsStrings.GREETING;       		 
-        		dojo.byId("pasteSubmitId").innerHTML = nlsStrings.PASTE_SUBMIT;
+        		dojo.byId("searchSubmitId").innerHTML = nlsStrings.SEARCH_SUBMIT;
 
       		}
-      		function pasteButtonPressed() {
-      			var pastedText = dojo.byId("pasteArea").value 
-				var uuid = UUID.generate();
-
-				var json =  '{\"add\": {\"doc\": {\"id\" : \"'+uuid+'\", \"description\" : \"'+pastedText+'\"}}}';
-//				var json = "{\"foo\":\"bar\"})";
-      			console.log("json:"+json);
-	  			restService.post("update/json?commit=true", json); 
+      		function searchButtonPressed() {
+				searchText = dojo.byId("searchTextId").value;
+				console.log("searchText:"+searchText);
+//	  			localhost:8983/solr/select?q=id:TestDoc1&wt=json&indent=true
+	  			var result = restService("select?q=id:"+searchText+"&wt=json&indent=true");
+	  			console.log("result"+result); 
 			}
       		/* On page load */     		
       		dojo.addOnLoad(init);
@@ -89,12 +88,12 @@
 				<p id="greetingId"></p>
 				<div data-dojo-type="dijit.form.Form" id="myForm" data-dojo-id="myForm"
 						encType="application/x-www-form-urlencoded" >
-					<textarea id="pasteArea" name="textarea3" data-dojo-type="dijit.form.Textarea" style="width:500px;"></textarea>
+					<input id="searchTextId" type="text" size="25">
 					<br>
-					<button id="pasteSubmitId" data-dojo-type="dijit.form.Button" onClick="pasteButtonPressed();" type="reset"></button>
+					<button id="searchSubmitId" data-dojo-type="dijit.form.Button" onClick="searchButtonPressed();" type="reset"></button>
 									
 				</div>	
-				<div>	
+				<div id="searchResult">	
 				  sdfojlksdjflkjsdkljfldksj
 				</div>
 			</div>
