@@ -68,8 +68,25 @@
 				searchText = dojo.byId("searchTextId").value;
 				console.log("searchText:"+searchText);
 //	  			localhost:8983/solr/select?q=id:TestDoc1&wt=json&indent=true
-	  			var result = restService("select?q=id:"+searchText+"&wt=json&indent=true");
-	  			console.log("result"+result); 
+	  			var original = restService("select?q=id:"+searchText+"&wt=json");
+//tämä on joku promise obj 
+// result is a new promise that produces a
+// new value
+/*				var result = original.then(function(){
+      				dojo.byId("searchResult").innerHTML = "Deferred has fired.";
+    			});
+*/
+
+				original.then(function(objs){
+				    var searchResult = dojo.byId("searchResult");
+				    responseJson = dojo.toJson(objs);
+				    dojo.forEach(objs.response.docs, function(result){
+				        dojo.create("li", {
+				            innerHTML: dojo.toJson(result.title)
+				        }, searchResult);
+				    });
+				});
+							
 			}
       		/* On page load */     		
       		dojo.addOnLoad(init);
